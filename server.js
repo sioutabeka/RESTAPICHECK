@@ -46,6 +46,15 @@ app.post('/users', (req, res) => {
         .catch(err => res.status(400).json({error: err.message}));
 }); 
 
+// Route POST 2
+app.post('/users', (req, res) => {
+    const newUser = new User(req.body); // on crée un user
+    newUser.save()
+        .then(savedUser => res.status(201).json(savedUser))
+        .catch(err => res.status(400).json({error: err.message}));
+}); 
+
+
 // Test postman http://localhost:3000/users
 
 // Route PUT
